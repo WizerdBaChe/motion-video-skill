@@ -1,6 +1,7 @@
 # Whole-film rules — decided before any device
 
-Source: the author's lab notes on axes and pairing, and its production order. Tiers: see
+Source: the author's lab notes on axes and pairing, and its production order (the lab is not
+shipped; its rules are written back into this file, which is the operating copy). Tiers: see
 `evidence-and-instruments.md` §Tiers. Origin: the author's reviews of lab rounds r10-r13
 (2026-09-29/30), stated by the author as the big problems of ALL ad/product/promo films.
 
@@ -18,6 +19,8 @@ request's most literal reading, stated in `build/plan.md`):
 | 5 | The ONE thing to remember | an ad hits one point; a tour walks each feature |
 | 6 | Energy (calm / lively / hype) and ground. ASK it; never infer it from the product alone | §1; r14-r15 inferred "calm" for a privacy tool and the author wanted hype; r16: naming the energy moved tone and pace (moving share 0.41 -> 0.70) |
 | 7 | Materials and limits (real screens, logo, forbidden claims) | `build-and-export.md` §4 |
+| 8 | Content voice: marketing / social (slogans, a closing hook) or a light technical explainer | the same content reads either way; it is a choice made per film, not a film type (author r18, 2026-10-01) |
+| 9 | Presentation form: paged (fixed page title per section, items appear and hold, section change = page change) or continuous-stage (one continuous stage, things enter, move, leave; the eye is led by camera, dimming or a moving character) | author r18: preferred the continuous-stage arm for its presentation, not its content (n=1). A film may also MIX the two; the author's lab has named mixes (stage-led opening then pages on the dimmed same stage, pages placed in one stage world, stage bookends around paged middle, anthology, beat-cut montage) with fail conditions - case readings only, no effect evidence yet (author 2026-10-02) |
 
 "介紹片" alone does not settle ad vs tour, and "廣告" alone does not settle intro vs hype: ask.
 
@@ -50,7 +53,25 @@ list is proposed by the model during later work; a human is not its first review
 | Books falling like dominoes | lively, playful; fit in a calm film unjudged | model proposal (r13) |
 | Giant outline "ghost" word drifting behind a statement | none: reads hollow, ugly | author (r17) |
 | 3D tilt push-in of a product screen | hype ad; text stays readable when cropped | author (r17: readable) |
+| Guide character (small mascot reacting to the narration with ! ? ✓ ♥ …; T11) | a logo / brand watermark, 1/8-1/6 of frame height, never covering text; appears only where it has work (opening, chapter change, a key or turning line), otherwise leaves or shrinks to a corner mark; which moments it leaves is not yet ruled | author (r18, 2026-10-01; n=1) |
+| Pointer dot moving to what is being said | none when on-screen motion already cues the point: redundant, noisy | author (r18) |
 | Split-flap numbers, tilted card wall, rotating list, whoosh on every transition | not yet judged | — |
+
+## §2a Motion intent — nothing moves for the sake of moving (adopted 2026-10-01)
+
+Tier: claim (a motion designer's public critique of AI-made motion graphics, Threads
+2026-09-30, adopted by the author 2026-10-01; not measured or A/B-tested here).
+
+- Every moving element in the storyboard has one line saying what its motion says: it
+  points at data, an order, a cause, or the emphasis. No line → the element holds still or
+  is cut. Example with intent: T07's particles are one point per data record; the same
+  burst as decoration has none.
+- Stock devices need that line before they are used: particle burst into a "universe",
+  tunnel / vortex transition, floating tilted card pile, glitch / RGB split, big text
+  standing in for design, randomly ticking numbers or fake HUD metadata. No line tying it
+  to the content → not used. (The §2 tone check still applies on top.)
+- Stacked effects: each extra layer on one element (glow, grain, blur, shake, chromatic
+  split) carries its own intent line. No numeric cap yet — set one only after measuring.
 
 ## §3 Pairing principles (author, after r12/r13)
 
@@ -60,9 +81,17 @@ list is proposed by the model during later work; a human is not its first review
   time, or hold longer.
 - Section seams: the incoming transition never covers the outgoing section's last beat.
 - Ending: replay nothing without a reason; resolve the logo fully; hold it 2.5-3.5 s
-  (author r14: 5.8 s and 7.4 s too long; provisional until the ad round is watched).
+  (author r14: 5.8 s and 7.4 s too long; provisional until the ad round is watched). The
+  last line pushes the viewer to act (r18 A1's "你來做吧" beat B1's ending, author r18).
 - More content is not better: pick devices by film type and tone; using every borrowed
   device made r14 L's big-text verb-card transitions ugly (author r14).
+  The same holds for devices the model found itself by web research: r21 D1 executed every
+  reference it named, and its full-frame black/white barcode transition was unrelated to
+  the song and abrupt (author r21). A researched device gets the same intent line as a
+  stock device.
+- Landing on the beat is not a reason to use a device (author r21): the beat map is a
+  calculation aid. Decide the device from the content first, then whether to lock it. A
+  target box scaling + background flash on every beat was on time and wholly unsuitable.
 - Local and global agree: a transition that changes only the demo area while the
   headline card around it stays put reads as two layers doing separate things; move both,
   or use a whole-frame transition (author r14).
@@ -72,13 +101,19 @@ list is proposed by the model during later work; a human is not its first review
   `build-and-export.md` §1 (author r14).
 - Readability beats beat-locking: when a lock would pull a line of text off screen too
   early, give up that lock (T01 "做片時" (b), author ruling; no seconds threshold yet).
+- Dwell per page / level must let the viewer finish reading: r19 A1 held each level
+  ~2.15 s and the author could not finish; at least +1 s per page (~3.2 s and up; author
+  r19, n=1, provisional). More text or lower contrast needs more time — fix the text first.
+- In a one-take scale dive, a hard camera surge into each level (rotation + rush, r19 A1)
+  was preferred over C28's same-angle soft cross-fade (author r19: strong impact; tone fit open).
 
 ## §4 Materials and text
 
 | Decision | Rule | Tier |
 |---|---|---|
 | Site has pictures | Use them: related, colour-unified, blurred or dimmed as background; never pasted raw | verified (r10: with/without images); treatment author |
-| Short-section headline | The headline is the biggest text in its section; the shorter the section, the more it must read at first glance | author (r11) |
+| Short-section headline | The headline is the biggest text in its section; the shorter the section, the more it must read at first glance. Set it as ONE block: big title + one small caption line, nothing competing beside it (C28 has it; r19 A1's 40 px title crowded by status line, labels and legend read as having none, author r19) | author (r11, r19) |
+| Leader-line labels | Large and high-contrast enough to be recognised at first glance; r19 A1's 11-14 px monospace on a dim ground slowed recognition | author (r19) |
 | Numbers on screen | Traceable to the product; optional features marked; illustrations marked; scope words as the docs say | measured (T05, `scripts/fidelity.py`) |
 | Material consistency | No material type the film has not used before appears mid-film; no text colour the film has not used for text (a data colour is not a text colour) | author (r12, r13) |
 | Emphasis contrast | The emphasised item needs enough contrast. How to get it on a locked LIGHT ground is still open | author (r13); open |

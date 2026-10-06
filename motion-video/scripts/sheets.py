@@ -95,16 +95,23 @@ def boundary_rows(events, fps, n_frames, pre=0.10, mid=0.05, post=0.30):
     return rows
 
 
-def grab_frames(video, indices, td):
-    """Decode the frames with these indices in ONE pass; returns {index: path}."""
+GRAB_CHUNK = 40  # one select expression of ~150 eq() terms made ffmpeg exit -12 (C32, 49 boundaries, 2026-10-04)
+
+
+def grab_frames(video, indices, td, chunk=GRAB_CHUNK):
+    """Decode the frames with these indices, `chunk` indices per ffmpeg pass; returns {index: path}."""
     idx = sorted(set(indices))
-    expr = "+".join(f"eq(n,{i})" for i in idx)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(video), "-vf", f"select='{expr}'",
-                    "-fps_mode", "passthrough", str(Path(td) / "g_%05d.png")], check=True)
-    files = sorted(Path(td).glob("g_*.png"))
-    if len(files) != len(idx):
-        raise SystemExit(f"asked for {len(idx)} distinct frames, decoded {len(files)} (index past the end?)")
-    return dict(zip(idx, files))
+    out = {}
+    for c0 in range(0, len(idx), chunk):
+        part = idx[c0:c0 + chunk]
+        expr = "+".join(f"eq(n,{i})" for i in part)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(video), "-vf", f"select='{expr}'",
+                        "-fps_mode", "passthrough", str(Path(td) / f"g{c0:05d}_%05d.png")], check=True)
+        files = sorted(Path(td).glob(f"g{c0:05d}_*.png"))
+        if len(files) != len(part):
+            raise SystemExit(f"asked for {len(part)} distinct frames, decoded {len(files)} (index past the end?)")
+        out.update(zip(part, files))
+    return out
 
 
 def boundary_sheet(video, events, out, fps=None, n_frames=None, thumb=300, pre=0.10, mid=0.05, post=0.30):
@@ -224,6 +231,23 @@ def selftest():
         want_t = [a0 - 0.1, (a0 + a1) / 2, a1 + 0.3]
         good = all(abs(g - w) <= 1 / sg.FPS for g, w in zip(got, want_t))
         print(f"span row: frame times {got} want {[round(x, 2) for x in want_t]} -> {'ok' if good else 'FAIL'}")
+        ok &= good
+        # many boundaries: 150 indices decode across chunks and each maps to its own frame (a single pass of
+        # ~150 eq() terms made ffmpeg exit -12 on C32); control: a wrong pairing must read as different
+        many = list(range(0, 150))
+        with tempfile.TemporaryDirectory() as gd, tempfile.TemporaryDirectory() as sd:
+            fr = grab_frames(mont, many, gd)
+            probe_idx = [0, 41, 79, 149]
+            alone = {}
+            for i in probe_idx:
+                sub = Path(sd) / str(i)
+                sub.mkdir()
+                alone[i] = _frame_arr(grab_frames(mont, [i], sub)[i])
+            right = max(float(np.abs(_frame_arr(fr[i]) - alone[i]).mean()) for i in probe_idx)
+            wrong = float(np.abs(_frame_arr(fr[0]) - alone[149]).mean())
+        good = len(fr) == 150 and right <= 1.0 and wrong > right + 5
+        print(f"150 indices in chunks of {GRAB_CHUNK}: decoded {len(fr)}, right-pair diff {right:.2f} (want <= 1), "
+              f"wrong-pair diff {wrong:.2f} (want > right + 5) -> {'ok' if good else 'FAIL'}")
         ok &= good
         # default mode is untouched: a 6 s film at 2 fps, 6 cols x 4 rows = 12 frames = one sheet_00.png, 6 thumbs wide
         ns = argparse.Namespace(video=str(stat), out=str(td / "def"), fps=2.0, cols=6, rows=4, thumb=100)

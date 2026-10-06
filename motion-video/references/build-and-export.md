@@ -55,7 +55,9 @@ function demoTime(tf) {                  // film seconds since the demo started 
 - Audio: a known-beat track (generated with `scripts/make_beat_track.py --bpm 120
   --bars 24 --out <wav>`, which also writes the beat-time JSON; or a real track measured
   with `scripts/beatgrid.py`) before the timeline is laid out; narration generated first
-  when the film is narrated.
+  when the film is narrated. Voice: Windows SAPI only as a stable test voice; a film a
+  person will watch uses a TTS model, picked by checking the options current at the time
+  (author r18: SAPI "太難聽").
 - Cover (author 2026-09-29): a separately designed image, never a frame grabbed from the film.
   Only for YouTube, burn the cover into frame 0 (the platform's frame-0 thumbnail is an
   external claim, unchecked); replace frame 0's pixels only — length, frame count and sound
@@ -78,6 +80,9 @@ function demoTime(tf) {                  // film seconds since the demo started 
    side by side only for overall style (sections are out of sync). Ask for per-section
    picks, not one winner (r10: the best sections were spread over five films).
 7. Good-looking / matching is the user's call after watching; numbers never decide it.
+8. Motion intent (`whole-film-rules.md` §2a): read the build against the storyboard's
+   intent lines; a moving element, stock device or effect layer with no line is a POLISH
+   finding (cut it or write the line), not a BLOCKER. No instrument checks this yet.
 
 ## §4 Product fidelity (T05) — author rulings 2026-09-27; checked by `scripts/fidelity.py`
 

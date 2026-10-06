@@ -39,6 +39,7 @@ record: when the current user rules otherwise, the user wins.
 | Building the page, time-driven rendering, export to MP4, product fidelity (claims file), cover, review loop | `references/build-and-export.md` |
 | Evidence tiers; which instrument in `scripts/` measures what; where each number comes from | `references/evidence-and-instruments.md` |
 | Spring / colour-swap parameters for one element | `references/element-motion-params.md` |
+| The same principle in posts, decks or web pages (cross-medium form, axes A–H, named schools) | not shipped; the author keeps it outside this skill |
 | A paragraph to append to any product-video prompt (ask the owner, don't guess) | `references/ask-owner-addon.md` |
 
 ## Order of work (each step before the next)
@@ -46,8 +47,9 @@ record: when the current user rules otherwise, the user wins.
 0. **Confirm before anything** (`whole-film-rules.md` §0): purpose / film type (intro
    ad, hype ad, product tour, explainer, profile), where it will be shown, what the viewer
    should do after watching, the audience, the ONE thing to remember, the ENERGY (calm /
-   lively / hype; asked, never inferred from the product alone) and ground, and the
-   materials and limits. A user present → ask these and wait. Unattended → write each
+   lively / hype; asked, never inferred from the product alone) and ground, the
+   materials and limits, the content voice (marketing vs light technical) and the
+   presentation form (paged vs continuous-stage). A user present → ask these and wait. Unattended → write each
    open one to `build/questions.md` and take the request's most literal reading, stated
    in `build/plan.md`. "產品介紹片" alone does not settle ad vs tour (author r14); "廣告" alone does not settle intro
    vs hype (author r15).
@@ -65,11 +67,15 @@ record: when the current user rules otherwise, the user wins.
    is not also hard-locked. Whether a film gets narration at all follows the film type and
    tone (step 1-2); a quiet film may still use music with slow sections.
 4. **Storyboard table before code**: per section `t`, headline, visual, data, layout,
-   transition in/out, camera goal. Show it to the user and wait for confirmation when a
+   transition in/out, camera goal, **motion intent** (one line per moving element and per
+   stacked effect layer: what the motion says; an element with no line stays still or
+   goes, `whole-film-rules.md` §2a). Show it to the user and wait for confirmation when a
    user is present. Record each design decision you make yourself, at the moment you make
    it, as one line in a decision log in `build/plan.md` (what, why, reversible or not).
 5. **Devices**: each device has its own tone; a device that clashes with step 1's tone is
-   dropped, the tone is never changed to fit the device (author 2026-09-30).
+   dropped, the tone is never changed to fit the device (author 2026-09-30). A stock device
+   (particle burst, tunnel, floating card pile, glitch, big-text-as-design, fake HUD
+   numbers) is used only with a motion-intent line tying it to content (§2a).
 6. **Build** (`build-and-export.md` §1): one HTML page whose every frame is a pure
    function of time (`window.__setTime(t)`); no timers, no CSS transitions.
 7. **Export** (`build-and-export.md` §2): frame-by-frame capture + ffmpeg; wait for fonts;
@@ -99,11 +105,12 @@ End every delivery with an unasked checklist, ranked by consequence:
 - `A 必驗` (must check, ≤ 7): audience right; energy is the one asked for (a hype ad stops the eye
   in the first second); ground colour locked (hype ad: only hit runs may alternate); a
   separate cover delivered; every on-screen number and feature traceable and meaningful
-  to the viewer; nothing unreadable (text held long enough, nothing cut at the frame
-  edge); end card resolves the logo fully and holds 2.5-3.5 s (author r14: 5.8 s and 7.4 s
+  to the viewer; nothing unreadable (text held long enough — a titled page/level ~3.2 s
+  and up, author r19 — labels large and high-contrast, nothing cut at the frame edge); end card resolves the logo fully and holds 2.5-3.5 s (author r14: 5.8 s and 7.4 s
   too long; r17 3.7 s accepted).
 - `B 體驗` (experience): transitions feel smooth; pace fits the tone; camera moves read as intended;
-  demos do not drag (waits sped up, `build-and-export.md` §1 speed map).
+  demos do not drag (waits sped up, `build-and-export.md` §1 speed map); nothing moves
+  for the sake of moving (each motion matches its storyboard intent line).
 
 Name the likely runtime failures and what the user would see: fonts not loaded (fallback
 glyphs in early frames), a background render that ended early (short MP4), a blank frame
@@ -112,5 +119,6 @@ from a failed asset. The page itself announces load failures on screen, not sile
 ## Extensions (not scope)
 
 Unvalidated items worth an imitation round, only when a film needs them: T08 line-locked
-sections, T09 camera parameters, T10 shape-to-shape, and C19 click-and-grow inside a full
-product film (never tried). Each needs a blinded A/B before its tier is raised.
+sections, T09 camera parameters, T10 shape-to-shape, T11 guide character with concept
+cards and screenshots (r18, n=1; author rulings in `whole-film-rules.md` §2), and C19
+click-and-grow inside a full product film (never tried). Each needs a blinded A/B before its tier is raised.

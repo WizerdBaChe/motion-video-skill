@@ -147,7 +147,7 @@ def analyse(path, k=6.0, min_gap=0.2, width=240):
         "motion_peaks": pair([e["peak_frame"] / fps for e in evs], grid, fps),
         "cuts": pair(cuts, grid, fps),
         "limits": "onset hop 11.6 ms; visual resolution 1 frame; tempo range 70-180 BPM prior-free; "
-                  "motion onset = first frame whose frame-difference exceeds median+k*MAD",
+                  "motion onset = first frame whose frame-difference exceeds median + k * median absolute deviation",
         "params": {"k": k, "min_gap_s": min_gap, "downscale_width": width, "diff_threshold": thr},
     }
     for key in ("motion_onsets", "motion_peaks", "cuts"):
