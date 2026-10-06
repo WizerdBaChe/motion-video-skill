@@ -15,7 +15,7 @@
 |---|---|
 | `motion-video/SKILL.md` | 入口：工作順序、可以下的判定、交付時附的驗收清單 |
 | `motion-video/references/` | 各主題規則：整支片規則、片型骨架、節奏 / 轉場 / 運鏡、建置與輸出、證據等級與量測工具、元件 spring 參數、「問產品負責人、別猜」的 prompt 附加段 |
-| `motion-video/scripts/` | 16 支量測工具 (instruments)：拍點、換段、畫面動態比例、運鏡、形狀接續、底色切換、spring 擬合、螢幕文字與產品比對、contact sheet 等 |
+| `motion-video/scripts/` | 21 支量測工具 (instruments)：拍點、換段、畫面動態比例、運鏡、形狀接續、底色切換、模糊轉場、閃白 / 色彩洗過、畫面遮幅、剪點跟哪條音樂事件流、導覽角色、spring 擬合、螢幕文字與產品比對、contact sheet 等 |
 | `motion-video/requirements.txt` | Python 套件 |
 
 每一條規則都標了**證據等級 (evidence tier)**：
@@ -24,6 +24,8 @@
 - **measured**：校準過的量測工具在來源影片上量到的數字
 - **verified**：經過盲測 A/B 回合、兩組範圍不重疊
 - **unvalidated**：在來源影片量過，但還沒用模仿測試驗證
+- **observed**：模型讀過來源影片的 frame sheet 的觀察，沒有校準過的量測工具、也沒做模仿測試
+- **claim**：他人（創作者、從業者）的說法，這裡沒量過
 
 文中的 `Cnn`（來源影片）、`Tnn`（技法卡）、`rNN`（模仿回合）是作者私人實驗室的紀錄編號，只作出處標籤；實驗室本身沒有附上，附上的是其中通用的量測工具。
 

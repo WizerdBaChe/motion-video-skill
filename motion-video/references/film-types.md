@@ -166,3 +166,83 @@ Short (15-30 s), music-driven, sections change on beats; each section's main sha
 the next (shape-to-shape, `rhythm-transitions-camera.md` §3); a bookend (the opening mark
 returns as the end card). A showreel may change ground colour per section — that is the
 opposite of the promo ground rule and belongs to the showreel register only.
+
+## §5 Music PV / MV (`music-video`: C14 C29-C36) — analysed only, no skeleton yet
+
+Added 2026-10-04 (author). The film carries a song: the timeline is the song's
+structure, lyrics are the picture's subject, no product / thesis / CTA. Same day the author's lab
+split off narrative film (AI anime / AI drama, shot-based storytelling) as a named but
+unopened purpose (on the lab's waiting list) and added `mv_form`, borrowed from MAD culture's
+form classes: `still-image` (static stills moved by push-in + a code type layer: C29 C30)
+vs `procedural` (every frame program-drawn and moving: C14 C31). None of the four is a MAD
+in the strict sense (nothing existing is re-edited); the lab borrows the form classes only. Observed, not
+measured with a calibrated instrument: section density follows the song (C29: verses 3-4
+hard cuts per 20 s, last chorus ~1.2 per second, interludes as continuous camera moves with
+almost no cuts, a near-black one-line pause before a chorus), one new type layout per lyric
+line, a resident HUD / ground layer tying many stills together, and one image motif that
+runs head to tail (C29: a point of light). C29's characters are static image-model stills
+moved only by push-in, glow and overlaid type. Build a skeleton here only after a round.
+
+Naming (the author's lab taxonomy, author 2026-10-04; the name is the first lookup key, so
+it follows the tags): music PV / MV = purpose `music-video`; still-image form (靜止畫型) =
+`mv_form: still-image`, any material (C29 C30 C32-C34); MAD ONLY for `material: source-work`
+re-edits (C32-C36) - C14 C29 C30 C31 and anything we make from original stills are NOT MADs.
+MAD types (author 2026-10-05, Niconico titles + Chinese usage) have TWO independent levels:
+picture (`mv_form`) 靜止畫 MAD (静止画MAD, C32-C34) vs 動畫 MAD (動画MAD, C35 C36); content
+(`mv_story`, four peers) 劇情向 / ストーリー (C36), 誤解向 (Chinese, C35), 複合, ゲーム (last
+two not opened); none -> plain MAD. Never "靜止系" (系 = tone / editing classes there).
+Classify the levels apart, but SEARCH with mixed forms (靜止畫/静止画/靜止系/静止,
+劇情向/剧情向/ストーリー, 誤解向/误解向/誤解系) or the bare root + MAD, in Simplified,
+Traditional and Japanese glyphs: titles mix them. A finding measured on MADs says MAD; using it for our own original still PV is a
+marked transfer ("unverified on original material"). Median absolute deviation is never
+abbreviated MAD.
+
+Real MADs (lab C32-C36, 2026-10-04; material `source-work` = existing work re-edited).
+New axis `mv_story`: `lyric-image` (pictures follow the lines; all still-image cases) /
+`story` (dialogue clips build a plot, the song scores it: C36) / `reinterpretation` (the
+original rearranged into a story it does not tell, often through an added frame such as a
+dating-sim UI: C35); both story types are `mv_form: clip-edit`, audio `dialogue`, named
+combination 'source-footage story cut', and sit next to the unopened film purpose.
+Still-image devices (the author's cards). T12 and T13 are **measured**
+(blurdip / flashwash / framebox on C32-C34); T14-T16 stay **observed** (frame-sheet reads only):
+- T12 blur bridge: each picture change goes blurred-then-sharp (defocus entry, motion-blur
+  whip-in, radial push-in); measured 5-13 blur changes per minute, median time spent blurred
+  0.27-0.37 s. Imitation r20 (n=3 per arm): the instrument counted 5/6/5 of 7 changes blurred
+  with the card vs 3/3/3 without, but the author saw the six films as essentially the same - the
+  model already does blur dissolves and whips unprompted, so the card adds no visible effect.
+  Hold the blur ~0.3 s; a very short blur (< ~0.15 s) reads as shake / heartbeat: a local
+  accent tied to picture content or a lyric, never the whole film (author ruling). The beat
+  grid alone is NOT a reason for a heartbeat pulse (author r21: the beat map is a calculation
+  aid); a pulse too small or too short reads as an unstable, shaking frame.
+  A brief that offers a place-name title gets a film location card, not MV type.
+- T13 window / light / colour: change the frame shape (letterbox, strip, slant via
+  clip-path), the light (white flash, single-colour wash ~0.25-0.4 s, a point of light in a
+  black dip) and the colour world (mono to colour) at each change. Only for still-image PVs,
+  never for promos (opposite of the one-resident-ground rule). A per-page ground change
+  with a fixed design system (type, ink, treatment, components) still reads as one film (C34).
+- T14 staggered layers: 3-6 layers per page enter 0.3-0.6 s apart (ground, picture, type,
+  small parts, connecting line), so a held page never stops; a large canvas crossed by a
+  virtual camera as an alternative (C34 18-38 s, zero cuts).
+- T15 motif thread and callback: one motif that MEANS something (C34 two-strand thread =
+  the two characters' colour codes; C29 point of light = the title) or a composition that
+  returns later (C32, segsim 0.989).
+- T16 lyric type family: pick one or two treatments for the whole film (giant type behind
+  the character, vertical spread, slide-in with tracking collapse, shard assembly,
+  per-glyph blur reveal, two-tier type, single-glyph cards); a list to choose from, not
+  rules to perform. Never copy lyrics into a card or a test input.
+No still-MAD boundary set was beat-locked (C32 R 0.11; C34 none significant; C33 marginal
+at small n), so none of these devices is tied to beats. Music analysis (the author's lab, `scripts/cutdrivers.py`): testing cuts against beat, accent, loudness
+change, section and harmonic change from the mix, no stream locks consistently across C32-C36,
+and transition peaks lock to none. The driver is the LYRIC LINE (author: cuts follow lyric
+content and section character, not beats); speech recognition on singing fails, so line
+times come from on-screen text (an OCR detector, partial, not shipped) and a model frame read. Measured
+on still-image MADs C32 and C33 (model-read lines, 2026-10-04): almost every lyric line
+arrives WITH a picture change (C32 hard cut, median 0.04 s; C33 hard cut or blur/flash), and
+further changes fall between lines (C33: on beats). Applied (author ruling, observed tier) to
+our own original still-image PVs as a TRANSFER, unverified on original material: one new
+picture per lyric line, then optional in-line changes on beats; never beat-snapping alone.
+C34 (still-image MAD, page turns by camera sweep and layer entrance) is undeterminable: no
+instrument sees its page turns yet (open in the lab). Animation MADs C35 (誤解向) and C36 (劇情向) show NO
+lyric track: their on-screen text is source dialogue; C36's shots change with each dialogue
+line (p 0.001), C35's dialogue box changes lines inside a shot. So the lyric-line rule is a
+still-image MAD finding only.
